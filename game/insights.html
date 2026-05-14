@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News and Insights - Gameplan Legal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        /* Force Mobile Navbar Edge-to-Edge */
+        @media (max-width: 1024px) {
+            body .site-header {
+                width: 100% !important;
+                max-width: 100vw !important;
+                overflow: hidden !important;
+            }
+            body .nav-container {
+                padding: 0 32px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            body .site-header .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 32px !important;
+                margin: 0 !important;
+            }
+            body .site-logo {
+                padding-left: 0 !important;
+            }
+            body .mobile-menu-toggle {
+                padding-right: 0 !important;
+            }
+            body .mobile-menu-toggle span {
+                background-color: #FAF9F6 !important;
+            }
+        }
+
+        /* Force Visibility Fix */
+        body {
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-light);
+        }
+
+        .gsap-fade-up {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+</head>
+
+<body class="section-dark">
+    <header class="site-header scrolled">
+        <div class="container nav-container">
+            <div class="site-logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <span
+                        style="font-family: var(--font-serif), ui-serif, Georgia, serif; font-size: 28px; font-weight: 400; color: #FAF9F6; letter-spacing: -0.02em;">Gameplan<span
+                            style="color: var(--color-gold);">.</span></span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#profile">Profile</a></li>
+                    <li><a href="team-detail.html">Team</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="index.html#enquiries" class="btn-pill">Enquire &rarr;</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <style>
+        .insights-hero {
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--color-bg-dark);
+            border-bottom: 1px solid rgba(6, 95, 70, 0.24);
+        }
+
+        .hero-left {
+            width: 45%;
+            padding: 160px 60px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 1px solid rgba(6, 95, 70, 0.22);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-right {
+            width: 55%;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(5, 10, 9, 0.28), rgba(6, 95, 70, 0.42));
+            pointer-events: none;
+        }
+
+        .insights-grid-section {
+            background-color: var(--color-bg-dark);
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .insight-block {
+            padding: 60px;
+            border-right: 1px solid rgba(6, 95, 70, 0.18);
+            border-bottom: 1px solid rgba(6, 95, 70, 0.18);
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center content vertically */
+            align-items: center;
+            /* Center content horizontally */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--color-text-light);
+            background-color: var(--color-bg-dark);
+        }
+
+        .pill-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(6, 95, 70, 0.94) 0%, rgba(5, 10, 9, 0.98) 100%);
+            border-radius: 0px;
+            transform: scale(1.02);
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: 1;
+        }
+
+        .insight-block:hover .pill-overlay {
+            top: 10%;
+            left: 5%;
+            width: 90%;
+            height: 80%;
+            transform: scale(1);
+            border-radius: 1000px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(6, 95, 70, 0.22);
+        }
+
+        .insight-block .content-wrap {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.8s var(--ease-luxury);
+        }
+
+        .insight-block:hover .content-wrap {
+            transform: scale(1.02);
+        }
+
+        .meta-tag {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: rgba(250, 249, 246, 0.68);
+        }
+
+        .insight-block h3 {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 1.25;
+            max-width: 450px;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+
+        .insight-placeholder {
+            pointer-events: none;
+        }
+
+        .insight-placeholder[hidden],
+        .insight-article[hidden],
+        .insights-no-results[hidden] {
+            display: none !important;
+        }
+
+        .filter-content li.is-active {
+            color: var(--color-text-light) !important;
+        }
+
+        @media (min-width: 993px) {
+            .filter-all-option {
+                display: none;
+            }
+        }
+
+        .insights-no-results {
+            padding: 80px 24px;
+            background-color: var(--color-bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(250, 249, 246, 0.68);
+            font-family: var(--font-body);
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .content-wrap {
+            position: relative;
+            z-index: 2;
+            pointer-events: none;
+            /* Allow hover to hit the parent block */
+        }
+
+        /* Hero Refinement */
+        .hero-right {
+            overflow: hidden;
+        }
+
+        .hero-image-zoom {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            animation: heroZoom 20s infinite alternate linear;
+        }
+
+        @keyframes heroZoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        :root {
+            --ease-luxury: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+    </style>
+
+    <section class="insights-hero">
+        <!-- Left Column -->
+        <div class="hero-left">
+            <div>
+                <h1
+                    style="font-family: var(--font-serif); font-size: clamp(48px, 6vw, 80px); font-weight: 400; line-height: 0.95; margin-bottom: 40px; color: var(--color-text-light); letter-spacing: -0.02em;">
+                    Smart<br>Insights</h1>
+                <p
+                    style="font-family: var(--font-body); font-size: 20px; color: rgba(250,249,246,0.78); max-width: 400px; line-height: 1.5; margin-bottom: 60px;">
+                    What's coming next can shape legal strategy now. Read our insights for analysis on legal
+                    developments and the impact they have in the real world.</p>
+            </div>
+
+            <div class="filters-column" style="max-width: 100%;">
+                <!-- Search Bar -->
+                <div style="margin-bottom: 40px; position: relative;">
+                    <input type="text" id="insightSearch" placeholder="Search by keyword" onkeyup="filterInsights()"
+                        style="width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(6,95,70,0.42); padding: 15px 0; font-family: var(--font-body); font-size: 16px; color: #fff; outline: none; transition: border-color 0.3s;"
+                        onfocus="this.style.borderColor='var(--color-gold)'"
+                        onblur="this.style.borderColor='rgba(6,95,70,0.42)'">
+                    <span style="position: absolute; right: 0; top: 15px; color: var(--color-gold);">&rarr;</span>
+                </div>
+
+                <div style="border-top: 1px solid rgba(6,95,70,0.42);">
+                    <!-- Filter 1 -->
+                    <div class="filter-group" data-filter-group="practice" data-default-label="All Practice Areas">
+                        <div class="filter-row" onclick="toggleFilter(this)"
+                            style="padding: 20px 0; border-bottom: 1px solid rgba(6,95,70,0.42); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                            <span
+                                style="font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--color-text-light);">All
+                                Practice Areas</span>
+                            <span class="icon"
+                                style="font-size: 18px; color: var(--color-text-light); transition: transform 0.3s ease;">&darr;</span>
+                        </div>
+                        <div class="filter-content"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: var(--color-bg-dark);">
+                            <ul style="list-style: none; padding: 20px 0;">
+                                <li class="filter-all-option" onclick="applyFilter('practice', '')" style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='var(--color-muted)'">All Practice Areas</li>
+                                <li onclick="applyFilter('practice', 'Sports Law')" style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='var(--color-muted)'">Sports Law</li>
+                                <li onclick="applyFilter('practice', 'Corporate & Commercial')" style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='var(--color-muted)'">Corporate & Commercial</li>
+                                <li onclick="applyFilter('practice', 'Dispute Resolution')" style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#fff'"
+                                    onmouseout="this.style.color='var(--color-muted)'">Dispute Resolution</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Filter 2 -->
+                    <div class="filter-group" data-filter-group="sector" data-default-label="All Sectors">
+                        <div class="filter-row" onclick="toggleFilter(this)"
+                            style="padding: 20px 0; border-bottom: 1px solid rgba(6,95,70,0.42); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                            <span
+                                style="font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--color-text-light);">All
+                                Sectors</span>
+                            <span class="icon"
+                                style="font-size: 18px; color: var(--color-text-light); transition: transform 0.3s ease;">&darr;</span>
+                        </div>
+                        <div class="filter-content"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: var(--color-bg-dark);">
+                            <ul style="list-style: none; padding: 20px 0;">
+                                <li class="filter-all-option" onclick="applyFilter('sector', '')"
+                                    style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer;">
+                                    All Sectors</li>
+                                <li onclick="applyFilter('sector', 'Professional Football')"
+                                    style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer;">
+                                    Professional Football</li>
+                                <li onclick="applyFilter('sector', 'E-Sports')"
+                                    style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer;">
+                                    E-Sports</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Filter 3 -->
+                    <div class="filter-group" data-filter-group="topic" data-default-label="All Topics">
+                        <div class="filter-row" onclick="toggleFilter(this)"
+                            style="padding: 20px 0; border-bottom: 1px solid rgba(6,95,70,0.42); display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.3s ease;">
+                            <span
+                                style="font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--color-text-light);">All
+                                Topics</span>
+                            <span class="icon"
+                                style="font-size: 18px; color: var(--color-text-light); transition: transform 0.3s ease;">&darr;</span>
+                        </div>
+                        <div class="filter-content"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: var(--color-bg-dark);">
+                            <ul style="list-style: none; padding: 20px 0;">
+                                <li class="filter-all-option" onclick="applyFilter('topic', '')"
+                                    style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer;">
+                                    All Topics</li>
+                                <li onclick="applyFilter('topic', 'Contract Law')"
+                                    style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer;">
+                                    Contract Law</li>
+                                <li onclick="applyFilter('topic', 'FIFA Regulations')"
+                                    style="padding: 8px 0; font-family: var(--font-body); font-size: 13px; color: var(--color-muted); cursor: pointer;">
+                                    FIFA Regulations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="button" class="filter-reset" onclick="resetFilters()"
+                        style="padding: 15px 16px 15px 0; min-height: 44px; font-family: var(--font-body); font-size: 12px; color: var(--color-muted); cursor: pointer; display: inline-block; background: transparent; border: 0; text-align: left;">
+                        Reset &times;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column (Image) -->
+        <div class="hero-right"></div>
+    </section>
+
+    <section class="insights-grid-section">
+        <div class="insights-grid">
+            <!-- Newsletter block (Remains Dark for contrast) -->
+            <div class="insight-block newsletter"
+                style="background-color: var(--color-bg-dark); color: var(--color-text-light); border-right: 1px solid rgba(6,95,70,0.18); border-bottom: 1px solid rgba(6,95,70,0.18); justify-content: center; align-items: center; text-align: center;">
+                <h3
+                    style="font-family: var(--font-serif); font-size: 42px; font-weight: 400; color: var(--color-text-light); margin-bottom: 30px; line-height: 1.1; position: relative; z-index: 2;">
+                    Subscribe to<br>the newsletter</h3>
+                <a href="mailto:connect@gameplanlegal.com?subject=Newsletter%20subscription" class="btn-hover-line"
+                    style="font-family: var(--font-body); font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--color-gold); position: relative; text-decoration: none; padding-bottom: 5px; z-index: 2;">
+                    Join Us
+                    <span
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: var(--color-gold); transform: scaleX(1); transform-origin: left; transition: transform 0.3s;"></span>
+                </a>
+            </div>
+
+            <!-- Article 1 -->
+            <a href="insight-detail.html" class="insight-block insight-article" data-practice="Sports Law Dispute Resolution" data-sector="Professional Football" data-topic="Insights Contract Law FIFA Regulations">
+                <div class="pill-overlay"></div>
+                <div class="content-wrap">
+                    <span class="meta-tag">Insights &mdash; 06.05.2026</span>
+                    <h3>5 Mistakes Football Players Make Before Signing a Contract in Thailand</h3>
+                </div>
+            </a>
+
+            <!-- Empty blocks for grid structure -->
+            <div class="insight-block insight-placeholder" aria-hidden="true"></div>
+            <div class="insight-block insight-placeholder" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <div id="insightsNoResults" class="insights-no-results" hidden>No insights match your search.</div>
+
+    <script>
+        const insightFilterState = {
+            practice: '',
+            sector: '',
+            topic: ''
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (menuToggle && mainNav) {
+                const setMenuOpen = (isOpen) => {
+                    menuToggle.classList.toggle('is-active', isOpen);
+                    mainNav.classList.toggle('is-open', isOpen);
+                    document.body.classList.toggle('mobile-menu-open', isOpen);
+                    menuToggle.setAttribute('aria-expanded', String(isOpen));
+                };
+
+                menuToggle.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    setMenuOpen(!mainNav.classList.contains('is-open'));
+                });
+
+                mainNav.addEventListener('click', event => {
+                    event.stopPropagation();
+                });
+
+                mainNav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        setMenuOpen(false);
+                    });
+                });
+
+                document.addEventListener('click', () => {
+                    if (mainNav.classList.contains('is-open')) {
+                        setMenuOpen(false);
+                    }
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && mainNav.classList.contains('is-open')) {
+                        setMenuOpen(false);
+                    }
+                });
+            }
+
+            document.querySelectorAll('a[href*="index.html#"]').forEach(link => {
+                link.addEventListener('click', () => {
+                    const targetId = link.getAttribute('href').split('#')[1];
+                    if (!targetId) {
+                        return;
+                    }
+
+                    try {
+                        window.sessionStorage.setItem('gameplanPendingSection', targetId);
+                    } catch (error) {}
+                });
+            });
+
+            updateFilterLabels();
+            updateActiveFilterOptions();
+            filterInsights();
+        });
+
+        function toggleFilter(element) {
+            const group = element.parentElement;
+            const content = group.querySelector('.filter-content');
+            const icon = element.querySelector('.icon');
+
+            document.querySelectorAll('.filter-group').forEach(other => {
+                if (other !== group) {
+                    other.querySelector('.filter-content').style.maxHeight = '0px';
+                    other.querySelector('.icon').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            const isOpen = (parseFloat(content.style.maxHeight) || 0) > 0;
+
+            if (isOpen) {
+                content.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function updateInsightVisibility(predicate) {
+            const articles = document.querySelectorAll('.insight-article');
+            const placeholders = document.querySelectorAll('.insight-placeholder');
+            const noResults = document.getElementById('insightsNoResults');
+            let visibleCount = 0;
+
+            articles.forEach(article => {
+                const isVisible = predicate(article);
+                article.hidden = !isVisible;
+                if (isVisible) {
+                    visibleCount += 1;
+                }
+            });
+
+            placeholders.forEach(placeholder => {
+                placeholder.hidden = visibleCount === 0;
+            });
+
+            if (noResults) {
+                noResults.hidden = visibleCount !== 0;
+            }
+        }
+
+        function closeFilters() {
+            document.querySelectorAll('.filter-content').forEach(c => c.style.maxHeight = '0px');
+            document.querySelectorAll('.icon').forEach(i => i.style.transform = 'rotate(0deg)');
+        }
+
+        function getArticleSearchText(article) {
+            return [
+                article.innerText,
+                article.dataset.practice || '',
+                article.dataset.sector || '',
+                article.dataset.topic || ''
+            ].join(' ').toLowerCase();
+        }
+
+        function matchesFilters(article) {
+            const searchTerm = document.getElementById('insightSearch').value.trim().toLowerCase();
+            const matchesSearch = !searchTerm || getArticleSearchText(article).includes(searchTerm);
+            const matchesPractice = !insightFilterState.practice ||
+                (article.dataset.practice || '').toLowerCase().includes(insightFilterState.practice.toLowerCase());
+            const matchesSector = !insightFilterState.sector ||
+                (article.dataset.sector || '').toLowerCase().includes(insightFilterState.sector.toLowerCase());
+            const matchesTopic = !insightFilterState.topic ||
+                (article.dataset.topic || '').toLowerCase().includes(insightFilterState.topic.toLowerCase());
+
+            return matchesSearch && matchesPractice && matchesSector && matchesTopic;
+        }
+
+        function updateFilterLabels() {
+            document.querySelectorAll('.filter-group[data-filter-group]').forEach(group => {
+                const type = group.dataset.filterGroup;
+                const label = group.querySelector('.filter-row span:first-child');
+                if (label) {
+                    label.textContent = insightFilterState[type] || group.dataset.defaultLabel;
+                }
+            });
+        }
+
+        function updateActiveFilterOptions() {
+            document.querySelectorAll('.filter-group[data-filter-group]').forEach(group => {
+                const type = group.dataset.filterGroup;
+                const activeValue = insightFilterState[type] || group.dataset.defaultLabel;
+
+                group.querySelectorAll('li').forEach(option => {
+                    const isActive = option.textContent.trim() === activeValue;
+                    option.classList.toggle('is-active', isActive);
+                    option.setAttribute('aria-current', String(isActive));
+                    option.style.color = isActive ? 'var(--color-text-light)' : 'var(--color-muted)';
+                });
+            });
+        }
+
+        function filterInsights() {
+            updateInsightVisibility(matchesFilters);
+        }
+
+        function applyFilter(type, value) {
+            insightFilterState[type] = value;
+            updateFilterLabels();
+            updateActiveFilterOptions();
+            filterInsights();
+            closeFilters();
+        }
+
+        function resetFilters() {
+            document.getElementById('insightSearch').value = '';
+            Object.keys(insightFilterState).forEach(type => {
+                insightFilterState[type] = '';
+            });
+            updateFilterLabels();
+            updateActiveFilterOptions();
+            filterInsights();
+            closeFilters();
+        }
+
+        function filterArticles() {
+            filterInsights();
+        }
+
+        document.getElementById('insightSearch').addEventListener('input', filterInsights);
+    </script>
+
+    <style>
+        .insight-link:hover .pill-overlay {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .insight-link:hover h3 {
+            transform: scale(1.02);
+        }
+
+        .btn-hover-line:hover span {
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .insights-hero {
+                flex-direction: column;
+            }
+
+            .hero-left,
+            .hero-right {
+                width: 100% !important;
+            }
+
+            .hero-right {
+                height: 400px;
+            }
+
+            .insights-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .insight-block {
+                padding: 60px 30px !important;
+                min-height: 400px !important;
+            }
+
+            .insight-placeholder {
+                display: none !important;
+            }
+        }
+    </style>
+    <footer
+        style="padding: 100px 60px; background-color: var(--color-bg-dark); border-top: 1px solid rgba(6,95,70,0.22); display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-family: var(--font-body); font-size: 13px; color: rgba(250,249,246,0.48);">
+            &copy; 2026 Gameplan Legal. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 30px; position: relative; z-index: 1001;">
+            <a href="disclaimer.html" onclick="window.location.href=this.href;"
+                style="font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(250,249,246,0.58); text-decoration: none; transition: all 0.3s ease;"
+                onmouseover="this.style.color='var(--color-gold)'; this.style.opacity='1';"
+                onmouseout="this.style.color='rgba(250,249,246,0.58)'; this.style.opacity='0.6';">Disclaimer</a>
+            <a href="terms-and-conditions.html" onclick="window.location.href=this.href;"
+                style="font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(250,249,246,0.58); text-decoration: none; transition: all 0.3s ease;"
+                onmouseover="this.style.color='var(--color-gold)'; this.style.opacity='1';"
+                onmouseout="this.style.color='rgba(250,249,246,0.58)'; this.style.opacity='0.6';">Terms & Conditions</a>
+            <a href="privacy-policy.html" onclick="window.location.href=this.href;"
+                style="font-family: var(--font-body); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(250,249,246,0.58); text-decoration: none; transition: all 0.3s ease;"
+                onmouseover="this.style.color='var(--color-gold)'; this.style.opacity='1';"
+                onmouseout="this.style.color='rgba(250,249,246,0.58)'; this.style.opacity='0.6';">Privacy Policy</a>
+
+
+
+
+

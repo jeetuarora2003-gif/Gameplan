@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <title>Litsan Chong - Gameplan Legal</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main Theme CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    
+    <!-- Additional Styles specific to this page if any (rest relies on main.css) -->
+    <style>
+        body {
+            background-color: var(--color-bg-dark);
+            color: #fff;
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .team-photo img {
+                width: 70% !important;
+                height: auto !important;
+                margin-left: 0 !important;
+            }
+        }
+
+        .action-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: opacity 0.3s ease;
+        }
+
+        .action-link:hover {
+            opacity: 0.7;
+        }
+
+        .action-link svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Mobile adjustments for the sidebar layout */
+        @media (max-width: 768px) {
+            .team-detail-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 60px 24px 40px !important;
+            }
+            .team-detail-sidebar {
+                position: static;
+            }
+            .team-detail-content h1 {
+                font-size: 40px;
+            }
+            .team-detail-content .bio {
+                font-size: 16px;
+            }
+        @media (max-width: 1024px) {
+            body .site-header {
+                width: 100% !important;
+                max-width: 100vw !important;
+                overflow: hidden !important;
+            }
+            body .nav-container {
+                padding: 0 32px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            body .site-header .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 32px !important;
+                margin: 0 !important;
+            }
+            body .site-logo {
+                padding-left: 0 !important;
+            }
+            body .mobile-menu-toggle {
+                padding-right: 0 !important;
+            }
+            body .mobile-menu-toggle span {
+                background-color: #FAF9F6 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header scrolled">
+    <div class="container nav-container">
+        <div class="site-logo">
+            <a href="index.html" style="text-decoration: none;">
+                <span style="font-family: 'Fraunces', ui-serif, Georgia, serif; font-size: 28px; font-weight: 400; color: #FAF9F6; letter-spacing: -0.02em;">Gameplan<span style="color: rgba(255,255,255,0.4);">.</span></span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#profile">Profile</a></li>
+                <li><a href="team-detail.html" style="color: rgba(255,255,255,0.4);">Team</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="index.html#careers">Careers</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-cta">
+            <a href="index.html#enquiries" class="btn-pill">Enquire &rarr;</a>
+        </div>
+        <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <div class="container team-detail-container">
+        
+        <!-- Sidebar: Photo & Contact Info -->
+        <aside class="team-detail-sidebar">
+            <div class="team-photo">
+                <img src="./assets/images/team/litsan-chong.jpg" alt="Litsan Chong" loading="lazy" decoding="async">
+            </div>
+            
+            <div class="team-detail-item">
+                <span class="team-label">Languages</span>
+                <p style="font-family: var(--font-body); font-size: 16px; color: rgba(255,255,255,0.8);">English, French, Chinese, Malay</p>
+            </div>
+            
+            <div class="team-detail-item">
+                <span class="team-label">Contact Details</span>
+                <p style="font-family: var(--font-body); font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 8px;">Bangkok, Thailand</p>
+                <p style="font-family: var(--font-body); font-size: 16px;"><a href="mailto:litsan@gameplanlegal.com" style="color: rgba(255,255,255,0.4); text-decoration: none;">litsan@gameplanlegal.com</a></p>
+                
+                <div class="action-links">
+                    <a href="mailto:litsan@gameplanlegal.com" class="action-link">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="1" y="3" width="14" height="10" rx="1.5"/>
+                            <polyline points="1,3 8,9 15,3"/>
+                        </svg>
+                        E-Mail
+                    </a>
+                    <a href="https://www.linkedin.com/in/litsan-chong" target="_blank" rel="noopener" class="action-link">
+                        <svg viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M3.5 2a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM2 6h3v8H2zM6 6h2.8v1.1h.04C9.3 6.4 10.3 6 11.4 6c2.5 0 3 1.6 3 3.7V14h-3v-3.8c0-1-.02-2.2-1.4-2.2-1.4 0-1.6 1-1.6 2.1V14H6z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content: Bio & Practices -->
+        <article class="team-detail-content">
+            <span class="team-label">Founder & Counsel</span>
+            <h1 style="font-family: var(--font-heading); color: #fff;">Litsan Chong</h1>
+            
+            <div class="bio" style="color: rgba(255,255,255,0.8);">
+                <p style="margin-bottom: 20px;">Lawyer with 10+ years' experience across Asia and Europe, specialising in cross-border disputes, sports arbitration, and corporate advisory. Experience spans leading law firms and arbitral institutions, including representing football clubs in FIFA and CAS proceedings.</p>
+                <p>Co-founder of Crossfeet Socks, a Swedish performance socks brand, with strong ties to the sport and athlete community. Outside of her legal practice, she trains six days a week, focusing on functional fitness and Olympic weightlifting, bringing a personal understanding of the discipline and commitment behind sport.</p>
+            </div>
+            
+            <div class="team-detail-item" style="border-bottom: none; border-top: 1px solid rgba(184, 151, 90, 0.2); padding-top: 40px;">
+                <span class="team-label" style="font-size: 14px; margin-bottom: 20px;">Expertise & Practices</span>
+                <ul style="list-style-type: disc; padding-left: 20px; font-family: var(--font-body); font-size: 16px; color: rgba(255,255,255,0.8); display: flex; flex-direction: column; gap: 12px;">
+                    <li>Arbitration (international &amp; domestic)</li>
+                    <li>FIFA &amp; CAS proceedings</li>
+                    <li>Cross-border disputes</li>
+                    <li>Corporate &amp; commercial law</li>
+                </ul>
+            </div>
+        </article>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer section-dark">
+    <hr class="divider-gold" style="opacity: 0.3;">
+    <div class="container" style="padding: 40px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div class="footer-logo">
+            <h3 style="font-family: var(--font-heading); color: #fff; font-size: 24px; font-weight: normal; margin: 0;">Gameplan<span style="color: rgba(255,255,255,0.4);">.</span></h3>
+        </div>
+        <div class="footer-copyright">
+            <p style="font-size: 12px; color: var(--color-muted); margin: 0;">&copy; 2026 Gameplan Legal. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+            <ul style="display: flex; gap: 24px; font-size: 12px; color: var(--color-muted); list-style: none; margin: 0; padding: 0;">
+                <li><a href="disclaimer.html" class="no-smooth" style="color: var(--color-muted); text-decoration: none; transition: color 0.3s;">Disclaimer</a></li>
+                <li><a href="terms-and-conditions.html" class="no-smooth" style="color: var(--color-muted); text-decoration: none; transition: color 0.3s;">Terms & Conditions</a></li>
+                <li><a href="privacy-policy.html" class="no-smooth" style="color: var(--color-muted); text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        if (menuToggle && mainNav) {
+            const setMenuOpen = (isOpen) => {
+                menuToggle.classList.toggle('is-active', isOpen);
+                mainNav.classList.toggle('is-open', isOpen);
+                document.body.classList.toggle('mobile-menu-open', isOpen);
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+            };
+
+            menuToggle.addEventListener('click', () => {
+                setMenuOpen(!mainNav.classList.contains('is-open'));
+            });
+
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    setMenuOpen(false);
+                });
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && mainNav.classList.contains('is-open')) {
+                    setMenuOpen(false);
+                }
+            });
+        }
+
+        document.querySelectorAll('a[href*="index.html#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                const targetId = link.getAttribute('href').split('#')[1];
+                if (!targetId) {
+                    return;
+                }
+
+                try {
+                    window.sessionStorage.setItem('gameplanPendingSection', targetId);
+                } catch (error) {}
+            });
+        });
+    });
+</script>
+
+
+    <!-- Cookie Consent Bar -->
+    <div id="cookieConsent" class="cookie-consent">
+        <p>We use cookies to ensure that we give you the best experience on our website. By continuing to use this site, you agree to our use of cookies.</p>
+        <div class="cookie-actions">
+            <button id="acceptCookies" class="cookie-btn-accept">Accept</button>
+            <button id="declineCookies" class="cookie-btn-decline">Decline</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie Consent Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const consentBar = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('acceptCookies');
+            
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    consentBar.classList.add('active');
+                }, 2000);
+            }
+
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                consentBar.classList.remove('active');
+            });
+
+            document.getElementById('declineCookies').addEventListener('click', function() {
+                consentBar.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
