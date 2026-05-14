@@ -507,7 +507,7 @@ strong, b, .bold {
   .nav-container {
     display: flex;
     justify-content: space-between;
-    padding: 0 24px !important;
+    padding: 0 20px !important;
   }
   .main-nav, .header-cta {
     display: none;
@@ -813,7 +813,7 @@ strong, b, .bold {
   .site-header .container {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 32px !important;
+    padding: 0 16px !important;
     margin: 0 !important;
   }
 
@@ -821,7 +821,7 @@ strong, b, .bold {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 32px !important;
+    padding: 0 16px !important;
   }
 
   .seats-divider {
@@ -1187,8 +1187,8 @@ strong, b, .bold {
   }
   
   .container {
-    padding-left: clamp(20px, 6vw, 32px) !important;
-    padding-right: clamp(20px, 6vw, 32px) !important;
+    padding-left: clamp(16px, 4vw, 20px) !important;
+    padding-right: clamp(16px, 4vw, 20px) !important;
   }
   
   /* ─── INDUSTRY-GRADE MOBILE PADDINGS ─── */
