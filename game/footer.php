@@ -4,10 +4,9 @@
     <hr class="divider-gold" style="opacity: 0.3;">
     <div class="container" style="padding: 40px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
         <div class="footer-logo">
-            <?php 
-            $logo_url = get_template_directory_uri() . '/assets/images/logo-white.svg';
-            ?>
-            <img src="<?php echo esc_url( $logo_url ); ?>" loading="lazy" decoding="async" alt="<?php bloginfo( 'name' ); ?>" style="max-width: 100px; height: auto;">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" style="text-decoration: none;">
+                <span style="font-family: 'Fraunces', ui-serif, Georgia, serif; font-size: 28px; font-weight: 400; color: #FAF9F6; letter-spacing: -0.02em;">Gameplan<span style="color: oklch(55% 0.15 150);">.</span></span>
+            </a>
         </div>
         
         <div class="footer-copyright">

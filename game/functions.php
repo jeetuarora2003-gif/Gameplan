@@ -53,7 +53,7 @@ function gameplan_scripts() {
 
     // Enqueue Theme CSS
     wp_enqueue_style( 'gameplan-style', get_stylesheet_uri(), array(), '1.0.0' );
-    wp_enqueue_style( 'gameplan-main', get_template_directory_uri() . '/assets/css/main.css', array(), '2.0.1' );
+    wp_enqueue_style( 'gameplan-main', get_template_directory_uri() . '/assets/css/main.css', array(), '2.0.5' );
 
     // Global Font Override to prevent stylistic reverts
     $custom_css = "h1, h2, h3, span, p { font-feature-settings: 'ss01' 0, 'cv11' 0, 'ss02' 0 !important; font-variation-settings: 'opsz' 72, 'SOFT' 0, 'WONK' 0 !important; font-optical-sizing: none !important; }";
@@ -64,7 +64,7 @@ function gameplan_scripts() {
     wp_enqueue_script( 'gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', array('gsap'), '3.12.2', true );
 
     // Enqueue Theme JS
-    wp_enqueue_script( 'gameplan-main-js', get_template_directory_uri() . '/assets/js/main.js', array('gsap', 'gsap-scrolltrigger'), '2.0.0', true );
+    wp_enqueue_script( 'gameplan-main-js', get_template_directory_uri() . '/assets/js/main.js', array('gsap', 'gsap-scrolltrigger'), '2.0.1', true );
     if ( is_page_template( 'page-insights.php' ) || is_post_type_archive( 'insights' ) || is_page( 'insights' ) ) {
         wp_enqueue_script( 'gameplan-insights-filter', get_template_directory_uri() . '/assets/js/insights-filter.js', array(), time(), true );
     }
@@ -247,11 +247,11 @@ function gameplan_article_meta_box_html( $post ) {
             <h4>Author 1 (Primary)</h4>
             <div class="gp-meta-field">
                 <label for="author_1_name">Name</label>
-                <input type="text" id="author_1_name" name="author_1_name" value="<?php echo esc_attr( $author_1_name ); ?>" placeholder="e.g. David Marshall">
+                <input type="text" id="author_1_name" name="author_1_name" value="<?php echo esc_attr( $author_1_name ); ?>" placeholder="e.g. Litsan Chong">
             </div>
             <div class="gp-meta-field">
                 <label for="author_1_title">Job Title</label>
-                <input type="text" id="author_1_title" name="author_1_title" value="<?php echo esc_attr( $author_1_title ); ?>" placeholder="e.g. Senior Partner, Sports Law">
+                <input type="text" id="author_1_title" name="author_1_title" value="<?php echo esc_attr( $author_1_title ); ?>" placeholder="e.g. Sports Law">
             </div>
         </div>
         
@@ -259,11 +259,11 @@ function gameplan_article_meta_box_html( $post ) {
             <h4>Author 2 (Optional)</h4>
             <div class="gp-meta-field">
                 <label for="author_2_name">Name</label>
-                <input type="text" id="author_2_name" name="author_2_name" value="<?php echo esc_attr( $author_2_name ); ?>" placeholder="e.g. Ananda S.">
+                <input type="text" id="author_2_name" name="author_2_name" value="<?php echo esc_attr( $author_2_name ); ?>" placeholder="e.g. Co-author Name">
             </div>
             <div class="gp-meta-field">
                 <label for="author_2_title">Job Title</label>
-                <input type="text" id="author_2_title" name="author_2_title" value="<?php echo esc_attr( $author_2_title ); ?>" placeholder="e.g. Football Regulatory Expert">
+                <input type="text" id="author_2_title" name="author_2_title" value="<?php echo esc_attr( $author_2_title ); ?>" placeholder="e.g. Job Title">
             </div>
         </div>
     </div>

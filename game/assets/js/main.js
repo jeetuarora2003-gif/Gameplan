@@ -2,21 +2,55 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Menu Toggle
   const menuToggle = document.querySelector('.mobile-menu-toggle');
   const mainNav = document.querySelector('.main-nav');
-  
-  if (menuToggle && mainNav) {
-    const setMenuOpen = (isOpen) => {
-      menuToggle.classList.toggle('is-active', isOpen);
-      mainNav.classList.toggle('is-open', isOpen);
-      document.body.classList.toggle('mobile-menu-open', isOpen);
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-    };
+  const setMenuOpen = (isOpen) => {
+    if (!menuToggle || !mainNav) {
+      return;
+    }
 
-    menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('is-active', isOpen);
+    mainNav.classList.toggle('is-open', isOpen);
+    document.body.classList.toggle('mobile-menu-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  };
+  
+  if (menuToggle && mainNav && menuToggle.dataset.menuBound !== 'true') {
+    menuToggle.dataset.menuBound = 'true';
+    menuToggle.setAttribute('type', 'button');
+
+    menuToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
       setMenuOpen(!mainNav.classList.contains('is-open'));
+    });
+
+    mainNav.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        setMenuOpen(false);
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      if (
+        mainNav.classList.contains('is-open') &&
+        !mainNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
     });
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && mainNav.classList.contains('is-open')) {
+        setMenuOpen(false);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && mainNav.classList.contains('is-open')) {
         setMenuOpen(false);
       }
     });
@@ -65,14 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const closeMobileMenu = () => {
-    if (!menuToggle || !mainNav) {
-      return;
-    }
-
-    menuToggle.classList.remove('is-active');
-    mainNav.classList.remove('is-open');
-    document.body.classList.remove('mobile-menu-open');
-    menuToggle.setAttribute('aria-expanded', 'false');
+    setMenuOpen(false);
   };
 
   const scrollToTargetElement = (targetElement, behavior = 'smooth') => {
@@ -202,20 +229,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.openNewsletter = function(e) {
     if (e) e.preventDefault();
+    if (!newsletterModal) return;
     newsletterModal.classList.add('active');
     newsletterModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
 
   window.closeNewsletter = function() {
+    if (!newsletterModal) return;
     newsletterModal.classList.remove('active');
     newsletterModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     // Reset form state after close animation
     setTimeout(() => {
-      newsletterForm.style.display = 'block';
-      newsletterSuccess.style.display = 'none';
-      newsletterForm.reset();
+      if (newsletterForm) {
+        const submitBtn = newsletterForm.querySelector('button');
+        newsletterForm.style.display = 'block';
+        newsletterForm.reset();
+        if (submitBtn) {
+          submitBtn.innerHTML = 'Subscribe <span>&rarr;</span>';
+          submitBtn.disabled = false;
+        }
+      }
+      if (newsletterSuccess) {
+        newsletterSuccess.style.display = 'none';
+      }
     }, 500);
   };
 
@@ -223,13 +261,17 @@ document.addEventListener('DOMContentLoaded', () => {
     newsletterForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Simulate premium AJAX submission
+      const emailInput = newsletterForm.querySelector('input[type="email"]');
+      const subscriberEmail = emailInput ? emailInput.value.trim() : '';
       const submitBtn = newsletterForm.querySelector('button');
       const originalText = submitBtn.innerHTML;
       submitBtn.innerHTML = 'Processing...';
       submitBtn.disabled = true;
 
       setTimeout(() => {
+        if (subscriberEmail) {
+          window.location.href = `mailto:connect@gameplanlegal.com?subject=Newsletter%20subscription&body=Please%20subscribe%20${encodeURIComponent(subscriberEmail)}%20to%20the%20Gameplan%20Legal%20newsletter.`;
+        }
         newsletterForm.style.display = 'none';
         newsletterSuccess.style.display = 'block';
         
@@ -249,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && newsletterModal.classList.contains('active')) {
+    if (e.key === 'Escape' && newsletterModal && newsletterModal.classList.contains('active')) {
       closeNewsletter();
     }
   });

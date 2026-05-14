@@ -95,6 +95,12 @@ get_header(); ?>
         font-size: 13px;
         color: rgba(0,0,0,0.6);
     }
+
+    .article-reading-time {
+        font-family: var(--font-body);
+        font-size: 14px;
+        color: rgba(0,0,0,0.6);
+    }
     
     .article-body {
         font-family: var(--font-body);
@@ -141,6 +147,14 @@ get_header(); ?>
         padding-left: 20px;
     }
 
+    .article-body ul {
+        list-style: disc;
+    }
+
+    .article-body ol {
+        list-style: decimal;
+    }
+
     .article-body li {
         margin-bottom: 12px;
     }
@@ -158,6 +172,27 @@ get_header(); ?>
     .share-links a:hover {
         color: var(--color-gold);
     }
+
+    .article-cta {
+        margin-top: 100px;
+        padding: 60px;
+        background-color: var(--color-bg-dark);
+        color: var(--color-text-light);
+        text-align: center;
+        border-radius: 24px;
+    }
+
+    .article-cta h4 {
+        font-family: var(--font-serif);
+        font-size: 32px;
+        margin-bottom: 20px;
+        line-height: 1.15;
+    }
+
+    .article-cta p {
+        margin-bottom: 30px;
+        opacity: 0.7;
+    }
     
     @media (max-width: 1200px) {
         .article-layout {
@@ -167,6 +202,137 @@ get_header(); ?>
         .sticky-sidebar {
             position: static;
             margin-bottom: 60px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .article-hero {
+            padding: 138px 0 64px;
+        }
+
+        .article-hero .container,
+        .article-layout.container {
+            width: 100% !important;
+            padding-left: 32px !important;
+            padding-right: 32px !important;
+        }
+
+        .article-meta-header {
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            margin-bottom: 20px;
+        }
+
+        .article-h1 {
+            max-width: 330px;
+            font-size: clamp(38px, 11vw, 48px);
+            line-height: 1.04;
+            margin-bottom: 28px;
+            text-wrap: balance;
+        }
+
+        .article-intro {
+            max-width: 330px;
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        .article-layout {
+            gap: 0;
+            padding-top: 48px;
+            padding-bottom: 72px;
+        }
+
+        .article-info {
+            display: block;
+            margin-bottom: 46px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .article-info .sidebar-label {
+            margin: 0;
+        }
+
+        .article-info .sidebar-label {
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+        }
+
+        .article-info .author-card {
+            margin-bottom: 28px;
+        }
+
+        .author-name {
+            font-size: 19px;
+            line-height: 1.25;
+        }
+
+        .article-body {
+            font-size: 17px;
+            line-height: 1.78;
+        }
+
+        .article-body p {
+            margin-bottom: 24px;
+        }
+
+        .article-body h2 {
+            font-size: clamp(34px, 10vw, 42px);
+            line-height: 1.1;
+            margin: 56px 0 22px;
+            text-wrap: balance;
+        }
+
+        .article-body h3 {
+            font-size: 24px;
+            line-height: 1.2;
+            margin: 40px 0 16px;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+
+        .article-body blockquote {
+            margin: 44px 0;
+            padding: 28px 24px;
+            font-size: 24px;
+            line-height: 1.45;
+        }
+
+        .article-cta {
+            margin-top: 64px;
+            padding: 40px 24px;
+            border-radius: 18px;
+        }
+
+        .article-cta h4 {
+            font-size: 30px;
+        }
+
+        .article-cta .btn-pill {
+            width: auto !important;
+            min-width: 142px;
+            display: inline-flex !important;
+        }
+
+        .article-share {
+            margin: 56px 0 0;
+            padding-top: 32px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .share-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 24px;
+        }
+
+        .share-links a {
+            margin-bottom: 0;
         }
     }
 </style>
@@ -200,30 +366,16 @@ get_header(); ?>
             <div class="article-body-wrapper">
                 <section class="article-layout container">
                     <!-- Sidebar Left -->
-                    <aside class="sticky-sidebar gsap-fade-up">
-                        <?php if ( $author_1_name ) : ?>
-                            <span class="sidebar-label">Published By</span>
-                            
-                            <div class="author-card">
-                                <span class="author-name"><?php echo esc_html( $author_1_name ); ?></span>
-                                <?php if ( $author_1_title ) : ?>
-                                    <span class="author-title"><?php echo esc_html( $author_1_title ); ?></span>
-                                <?php endif; ?>
-                            </div>
-                            
-                            <?php if ( $author_2_name ) : ?>
-                                <div class="author-card">
-                                    <span class="author-name"><?php echo esc_html( $author_2_name ); ?></span>
-                                    <?php if ( $author_2_title ) : ?>
-                                        <span class="author-title"><?php echo esc_html( $author_2_title ); ?></span>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
-                        <?php endif; ?>
+                    <aside class="sticky-sidebar article-info gsap-fade-up">
+                        <span class="sidebar-label">Published By</span>
+                        
+                        <div class="author-card">
+                            <span class="author-name">Litsan Chong</span>
+                        </div>
                         
                         <?php if ( $reading_time ) : ?>
-                            <span class="sidebar-label" style="margin-top: 60px;">Reading Time</span>
-                            <span style="font-family: var(--font-body); font-size: 14px; color: rgba(0,0,0,0.6);"><?php echo esc_html( $reading_time ); ?></span>
+                            <span class="sidebar-label">Reading Time</span>
+                            <span class="article-reading-time"><?php echo esc_html( $reading_time ); ?></span>
                         <?php endif; ?>
                     </aside>
 
@@ -231,15 +383,15 @@ get_header(); ?>
                     <div class="article-body gsap-fade-up">
                         <?php the_content(); ?>
                         
-                        <div style="margin-top: 100px; padding: 60px; background-color: var(--color-bg-dark); color: var(--color-text-light); text-align: center; border-radius: 24px;">
-                            <h4 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: 20px;">Discuss your situation with us</h4>
-                            <p style="margin-bottom: 30px; opacity: 0.7;">Contact Gameplan Legal for strategic legal support on player contracts and sports disputes.</p>
+                        <div class="article-cta">
+                            <h4>Discuss your situation with us</h4>
+                            <p>Contact Gameplan Legal for strategic legal support on player contracts and sports disputes.</p>
                             <a href="mailto:connect@gameplanlegal.com" class="btn-pill" style="background: var(--color-gold); border: none; color: #fff;">Get in touch &rarr;</a>
                         </div>
                     </div>
                     
                     <!-- Sidebar Right -->
-                    <aside class="sticky-sidebar gsap-fade-up">
+                    <aside class="sticky-sidebar article-share gsap-fade-up">
                         <span class="sidebar-label">Share This</span>
                         <div class="share-links">
                             <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode(get_permalink()); ?>" target="_blank" rel="noopener">LinkedIn</a>

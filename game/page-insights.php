@@ -420,19 +420,57 @@ foreach ( $gameplan_insight_filters as $filter_key => $filter_config ) {
     @media (max-width: 992px) {
         .insights-hero {
             flex-direction: column;
+            min-height: auto;
         }
         .hero-left, .hero-right {
             width: 100% !important;
         }
+        .hero-left {
+            padding: 144px 32px 54px !important;
+            border-right: 0;
+        }
+        .hero-left h1 {
+            font-size: clamp(44px, 13vw, 56px);
+            line-height: 0.98;
+            margin-bottom: 30px;
+        }
+        .hero-left p {
+            max-width: 330px;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 52px;
+        }
+        .filter-reset {
+            margin-top: 18px;
+        }
         .hero-right {
-            height: 400px;
+            height: auto !important;
+            aspect-ratio: 16 / 10;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         .insights-grid {
             grid-template-columns: 1fr !important;
         }
         .insight-block {
-            padding: 60px 30px !important;
-            min-height: 400px !important;
+            padding: 48px 30px !important;
+            min-height: 340px !important;
+        }
+        .meta-tag {
+            margin-bottom: 22px;
+            font-size: 10px;
+            letter-spacing: 0.16em;
+        }
+        .insight-block h3 {
+            max-width: min(100%, 330px);
+            font-size: clamp(28px, 7.6vw, 32px);
+            line-height: 1.18;
+        }
+        .insight-block.newsletter h2 {
+            font-size: clamp(34px, 9vw, 40px) !important;
+            line-height: 1.08 !important;
+            margin-bottom: 22px !important;
         }
     }
 </style>

@@ -11,42 +11,42 @@
             body .site-header {
                 width: 100% !important;
                 max-width: 100vw !important;
-                overflow: hidden !important;
+                left: 0 !important;
+                right: 0 !important;
             }
             body .nav-container {
-                padding: 0 16px !important;
                 width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 16px !important;
+                margin: 0 !important;
                 box-sizing: border-box !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: center !important;
-                max-width: 100% !important;
-                margin: 0 !important;
             }
-            body .site-header .container {
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 0 16px !important;
-                margin: 0 !important;
+            /* Ensure these don't take up space in the flexbox on mobile */
+            body .main-nav, 
+            body .header-cta {
+                display: none !important;
+            }
+            body .main-nav.is-open {
+                display: flex !important;
             }
             body .site-logo {
                 padding-left: 0 !important;
+                flex-shrink: 0 !important;
             }
             body .mobile-menu-toggle {
                 padding-right: 0 !important;
+                display: flex !important; /* Ensure it's visible */
+                flex-shrink: 0 !important;
             }
             body .mobile-menu-toggle span {
                 background-color: #FAF9F6 !important;
             }
-            .seats-divider {
-                padding-bottom: 20px !important;
-            }
-            .team-section {
-                padding-bottom: 20px !important;
-            }
-            .careers-section {
-                padding-top: 30px !important;
-            }
+            .seats-divider { padding-bottom: 20px !important; }
+            .team-section { padding-bottom: 20px !important; }
+            .careers-section { padding-top: 30px !important; }
         }
     </style>
 </head>
@@ -80,7 +80,7 @@
         </div>
 
         <!-- Mobile Toggle -->
-        <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
             <span></span>
             <span></span>
             <span></span>
