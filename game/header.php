@@ -14,7 +14,7 @@
                 overflow: hidden !important;
             }
             body .nav-container {
-                padding: 0 32px !important;
+                padding: 0 16px !important;
                 width: 100% !important;
                 box-sizing: border-box !important;
                 display: flex !important;
@@ -26,11 +26,11 @@
             body .site-header .container {
                 width: 100% !important;
                 max-width: 100% !important;
-                padding: 0 32px !important;
+                padding: 0 16px !important;
                 margin: 0 !important;
             }
             body .site-logo {
-                padding-left: 0 !important; /* Resetting since padding is now handled by nav-container */
+                padding-left: 0 !important;
             }
             body .mobile-menu-toggle {
                 padding-right: 0 !important;
